@@ -76,7 +76,7 @@ jobs:
       run: autobuild package --address-size ${{ matrix.address_size }}
 
     - name: Publish package
-      #if: github.event_name != 'pull_request'
+      if: github.event_name != 'pull_request'
       uses: ./dep/action-scp
       with:
         key: ${{ secrets.SCP_KEY }}
